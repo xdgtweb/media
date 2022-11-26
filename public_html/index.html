@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Media</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="1.jpg">
+        <style>
+            
+            *
+            {
+                margin: 0;
+                padding: 0;
+            }
+            
+            body
+            {
+                display: flex;
+                background: black;
+            }
+            
+            #caja1
+            {
+                margin: 0 auto;
+                text-align: center;
+                align-content: center;
+                justify-content: center;
+                display: inline-grid;
+            }
+            
+            #caja1:active
+            {
+                content: url(2.jpg);
+                margin-top: 50px;
+                border-radius: 30px;
+                width: 500px;
+                height: 500px;
+            }
+            
+            img
+            {
+                border-radius: 30px;
+                margin-top: 50px;
+            }
+            
+            label
+            {
+                font-size: 30px;
+                font-weight: bold;
+                font-family: sans-serif;
+                color: white;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <script>
+            
+            const porcentajeEjercicios = 0.3;
+            const porcentajeExamen = 0.7;
+            var notaEjercios = 0.0;
+            var notaExamenes = 0.0;
+            var mediaEjercios = 0.0;
+            var mediaExamen = 0.0;
+            var notaTotal = 0.0;
+            var auxNotasEjEx = 0.0;
+            var contNotasEj = 0;
+            var contNotasEx = 0;
+            var fraseMotivadora = "";
+            
+            do
+            {
+                auxNotasEjEx = prompt("Nota de Ejercicio");
+                
+                if(auxNotasEjEx.length > 0)
+                {
+                    contNotasEj = contNotasEj + 1;
+                    notaEjercios = (notaEjercios + parseFloat(auxNotasEjEx));
+                }
+                        
+            }while(auxNotasEjEx.length !== 0);
+            
+            mediaEjercios = ((notaEjercios / contNotasEj) * porcentajeEjercicios);
+            
+            do
+            {
+                auxNotasEjEx = prompt("Nota de Examen");
+                
+                if(auxNotasEjEx.length > 0)
+                {
+                    contNotasEx = contNotasEx + 1;
+                    notaExamenes = (notaExamenes + parseFloat(auxNotasEjEx));
+                }
+                        
+            }while(auxNotasEjEx.length !== 0);
+            
+            mediaExamen = ((notaExamenes / contNotasEx) * porcentajeExamen);
+            
+            notaTotal = mediaEjercios + mediaExamen;
+            
+            if (notaTotal > 8.0)
+            {
+                fraseMotivadora = "ME GUSTA QUE VENGAS";
+            }
+            else if (notaTotal > 7.0)
+            {
+                fraseMotivadora = "PODEÍS COPIAROS PERO NO HABLAR...";
+            }
+            else if (notaTotal > 6.0)
+            {
+                fraseMotivadora = "¿ESTO QUE ESTOY DICIENDO SE ENTIENDE?...";
+            }
+            else if (notaTotal > 5.0)
+            {
+                fraseMotivadora = "PODRIAS SUBIR ALGO, COMUNISTA";
+            }
+            else if (notaTotal > 3.0)
+            {
+                fraseMotivadora = "YO HE VISTO A GENTE LLORANDO";
+            }
+            else if (notaTotal < 3.0)
+            {
+                fraseMotivadora = "EL AÑO QUE VIENE; VIENES, Y ME LO CUENTAS";
+            }
+            
+            alert("Media de los ejercicios: " +
+                    mediaEjercios.toFixed(2) + "\n" +
+                    "Media de los examenes: " +
+                    mediaExamen.toFixed(2) + "\n" +
+                    "La media total es: " +
+                    notaTotal.toFixed(2) +
+                    "\n\n" + fraseMotivadora);
+            
+        </script>
+        
+        <div id="caja1">
+            <img src="1.jpg" width="500" height="500" alt="logo"/>
+        </div>
+        
+    </body>
+</html>
